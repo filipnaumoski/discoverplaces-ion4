@@ -5,6 +5,7 @@ import { Place } from './places.model';
   providedIn: 'root'
 })
 export class PlacesService {
+// tslint:disable-next-line: variable-name
   private _places: Place[] = [
     new Place(
       'p1',
