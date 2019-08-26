@@ -4,8 +4,8 @@ import { SegmentChangeEventDetail } from '@ionic/core';
 import { Subscription } from 'rxjs';
 
 import { PlacesService } from '../places.service';
-import { AuthService } from '../../auth/auth.service';
 import { Place } from '../places.model';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-discover',
@@ -17,7 +17,6 @@ export class DiscoverPage implements OnInit, OnDestroy {
   listedLoadedPlaces: Place[];
   relevantPlaces: Place[];
   private placesSub: Subscription;
-  chosenFilter = 'all';
 
   constructor(
     private placesService: PlacesService,
@@ -28,16 +27,9 @@ export class DiscoverPage implements OnInit, OnDestroy {
   ngOnInit() {
     this.placesSub = this.placesService.places.subscribe(places => {
       this.loadedPlaces = places;
-      if (this.chosenFilter === 'all') {
-          this.relevantPlaces = this.loadedPlaces;
-          this.listedLoadedPlaces = this.relevantPlaces.slice(1);
-      } else {
-          this.relevantPlaces = this.loadedPlaces.filter(
-            place => place.userId !== this.authService.userId
-          );
-          this.listedLoadedPlaces = this.relevantPlaces.slice(1);
-      }
-  });
+      this.relevantPlaces = this.loadedPlaces;
+      this.listedLoadedPlaces = this.relevantPlaces.slice(1);
+    });
   }
 
   onOpenMenu() {
@@ -48,13 +40,11 @@ export class DiscoverPage implements OnInit, OnDestroy {
     if (event.detail.value === 'all') {
       this.relevantPlaces = this.loadedPlaces;
       this.listedLoadedPlaces = this.relevantPlaces.slice(1);
-      this.chosenFilter = 'all';
     } else {
       this.relevantPlaces = this.loadedPlaces.filter(
         place => place.userId !== this.authService.userId
       );
       this.listedLoadedPlaces = this.relevantPlaces.slice(1);
-      this.chosenFilter = 'bookable';
     }
   }
 

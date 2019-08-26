@@ -13,7 +13,7 @@ export class PlacesService {
   private _places = new BehaviorSubject<Place[]>([
     new Place(
       'p1',
-      'Manhetten Mansion',
+      'Manhattan Mansion',
       'In the heart of New York City.',
       'https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
       149.99,
@@ -34,7 +34,7 @@ export class PlacesService {
     new Place(
       'p3',
       'The Foggy Palace',
-      'Not your avarege city trip',
+      'Not your average city trip!',
       'https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
       99.99,
       new Date('2019-01-01'),
@@ -55,7 +55,13 @@ export class PlacesService {
     }));
   }
 
-  addPlace(title: string, description: string, price: number, dateFrom: Date, dateTo: Date) {
+  addPlace(
+    title: string,
+    description: string,
+    price: number,
+    dateFrom: Date,
+    dateTo: Date
+  ) {
     const newPlace = new Place(
       Math.random().toString(),
       title,

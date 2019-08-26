@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-
-import { Place } from 'src/app/places/places.model';
 import { NgForm } from '@angular/forms';
+
+import { Place } from '../../places/places.model';
 
 @Component({
   selector: 'app-create-booking',
@@ -54,9 +54,9 @@ export class CreateBookingComponent implements OnInit {
         bookingData: {
           firstName: this.form.value['first-name'],
           lastName: this.form.value['last-name'],
-          guestNumber: this.form.value['guest-number'],
-          startDate: this.form.value['date-from'],
-          endDate: this.form.value['date-to']
+          guestNumber: +this.form.value['guest-number'],
+          startDate: new Date(this.form.value['date-from']),
+          endDate: new Date(this.form.value['date-to'])
         }
       },
       'confirm'

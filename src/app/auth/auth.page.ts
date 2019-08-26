@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
+import { LoadingController } from '@ionic/angular';
 
 import { AuthService } from './auth.service';
 
