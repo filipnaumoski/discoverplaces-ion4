@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 
 import { Place } from './places.model';
 import { AuthService } from '../auth/auth.service';
-import { ThrowStmt } from '@angular/compiler';
 
 interface PlaceData {
   title: string;
