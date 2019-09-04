@@ -13,11 +13,14 @@ log.txt
 .sass-cache/
 .versions/
 .sourcemaps/
+.gradle/
 coverage/
 collection/
 dist/ 
 node_modules/
 platforms/
+android/
+ios/
 www/
 tmp/
 temp/

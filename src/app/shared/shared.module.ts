@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 
 import { MapModalComponent } from './map-modal/map-modal.component';
 import { LocationPickerComponent } from './pickers/location-picker/location-picker.component';
+import { ImagePickerComponent } from './pickers/image-picker/image-picker.component';
 
 
 @NgModule({
     declarations: [
         LocationPickerComponent,
-        MapModalComponent
+        MapModalComponent,
+        ImagePickerComponent
     ],
     imports: [
         CommonModule,
@@ -17,7 +19,8 @@ import { LocationPickerComponent } from './pickers/location-picker/location-pick
     ],
     exports: [
         LocationPickerComponent,
-        MapModalComponent
+        MapModalComponent,
+        ImagePickerComponent
     ],
     entryComponents: [
         MapModalComponent

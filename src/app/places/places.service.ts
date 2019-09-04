@@ -108,20 +108,30 @@ export class PlacesService {
       );
   }
 
+  uploadImage(image: File) {
+    const uploadData = new FormData();
+    uploadData.append('image', image);
+    return this.http.post<{imageUrl: string, imagePath: string}>(
+      'https://us-central1-discover-places-f7d22.cloudfunctions.net/storeImage',
+      uploadData
+    );
+  }
+
   addPlace(
     title: string,
     description: string,
     price: number,
     dateFrom: Date,
     dateTo: Date,
-    location: PlaceLocation
+    location: PlaceLocation,
+    imageUrl
   ) {
     let generatedId: string;
     const newPlace = new Place(
       Math.random().toString(),
       title,
       description,
-      'https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+      imageUrl,
       price,
       dateFrom,
       dateTo,
