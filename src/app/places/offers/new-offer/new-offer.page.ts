@@ -76,7 +76,6 @@ export class NewOfferPage implements OnInit {
 
   onImagePicked(imageData: string | File) {
     let imageFile;
-    console.log('img', imageData);
     if (typeof imageData === 'string') {
       try {
         imageFile = base64toBlob(
@@ -97,7 +96,6 @@ export class NewOfferPage implements OnInit {
     if (!this.form.valid || !this.form.get('image').value) {
       return;
     }
-    console.log('form', this.form.value);
     this.loadingCtrl
       .create({
         message: 'Creating place...'
